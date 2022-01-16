@@ -1,3 +1,4 @@
+# 最長共通部分列(LCS)
 s, t = input(), input()
 slen, tlen = len(s), len(t)
 dp = [[0]*(tlen+1) for i in range(slen+1)]
