@@ -1,14 +1,18 @@
+# AGC033A
 H, W = (int(i) for i in input().split())
 C = []
 for i in range(H):
   C.append(input())
 MAP = [[0] * W for _ in range(H)]
 TIME = [[0] * W for _ in range(H)]
+ans = 0
 from collections import deque
-def bfs(first_x, first_y):
+def bfs():
   q = deque([])
-  MAP[first_x][first_y] = 1
-  q.append((first_x, first_y))
+  for i in range(H):
+    for j in range(W):
+      if C[i][j] == '#':
+        q.append((i, j))
   while q:
     cx, cy = q.popleft()
     for (i, j) in [(1, 0), (-1, 0), (0, 1), (0, -1)]:
@@ -20,7 +24,8 @@ def bfs(first_x, first_y):
               MAP[nextx][nexty] = 1
               TIME[nextx][nexty] = TIME[cx][cy] + 1
               q.append((nextx, nexty))
-bfs(0, 0)
-print(TIME)
-            
-  
+bfs()
+for i in range(H):
+  for j in range(W):
+    ans = max(ans, TIME[i][j])
+print(ans)

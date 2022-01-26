@@ -8,10 +8,10 @@ from collections import deque
 def rotate(n):
   s = str(n)
   return int(s[-1] + s[:-1])
-def bfs(n):
+def bfs(first):
   q = deque([])
-  MAP[n] = 1
-  q.append(n)
+  MAP[first] = 1
+  q.append(first)
   while q:
     cn = q.popleft()
     if cn >= 10 and cn%10 != 0:
