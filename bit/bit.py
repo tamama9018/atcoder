@@ -1,9 +1,9 @@
 s = input()
-n = 3
+N = 3
 ans = 0
-for i in range(2**n): 
+for i in range(2**N): 
   L = []
-  for j in range(n):
+  for j in range(N):
     L.append(i//2**j % 2)
   siki = s[0]
   for l, s_ in zip(L, s[1:]):
@@ -15,3 +15,4 @@ for i in range(2**n):
   if eval(siki) == 7:
     print(siki + '=7')
     exit()
+    
